@@ -20,6 +20,8 @@
     "inflight": "^1.0.6",
     "jsonwebtoken": "^9.0.2",
     "pdfkit": "^0.17.1",
-    "pg": "^8.15.6"
+    "pg": "^8.15.6",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   }
 }
