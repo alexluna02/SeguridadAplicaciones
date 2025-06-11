@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json'); // O el path a tu archivo swagger
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -36,8 +38,10 @@ app.use('/api/usuarios_roles', usuariosRolesRoutes);
 const rolesPermisosRoutes = require('./routes/roles_permisos.routes');
 app.use('/api/roles_permisos', rolesPermisosRoutes);
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 // Iniciar servidor
 app.listen(port, () => {
   console.log(`Servidor corriendo en http://localhost:${port}`);
+  console.log(`Servidor corriendo en http://localhost:${port}/api-docs`);
 });
-
